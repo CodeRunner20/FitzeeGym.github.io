@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stopwatch</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stopwatch.css">
+        <script src="stopwatch.js"></script>
+        
+    </head>
+    <body onload="show();">
+        <div class="container">
+            <div id="c">
+                <div class="mark"></div>
+            </div>
+            <div id="timer">00:00.00</div>
+            <button id="pp" onclick="start()"><img src="https://pbs.twimg.com/profile_images/1475283350/apple-touch-icon_400x400.png" id="ppp" alt="Play Pause Button" draggable="false"></button>
+            <button id="lr" onclick="lr()">Reset</button>
+            <div id="lbox">Laps</div>
+            <div id="c2"></div>
+            <div class="c3"></div>
+        </div>
+        <script>
+            function setButton(){
+                if(flag%2!=0){
+                    document.getElementById('lr').innerHTML="Lap";
+                    document.getElementById('ppp').src='https://www.bing.com/th?id=OIP.r_KvDD0jebLDvgCrd9ez6gHaHa&pid=Api&rs=1&p=0';
+                    document.getElementById('c2').style.transform='rotate('+rt+'deg)';
+                    rt++;
+                    rt=(rt>359)?0:rt;
+                }
+                else{
+                    document.getElementById('lr').innerHTML="Reset";
+                    document.getElementById('ppp').src='https://pbs.twimg.com/profile_images/1475283350/apple-touch-icon_400x400.png';
+                }
+                document.getElementById('c').style.transform='rotate('+ (( ss + mss/1000) /60 * 360)+'deg)';
+                
+            }
+            setInterval(setButton,1);
+        </script>
+    </body>
+</html>

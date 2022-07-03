@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <section class="register">
+        <h1>register</h1>
+        <form method="post" autocomplete="off" name="google-sheet">
+            <div class="input_box">
+                <input type="text" name="FName" placeholder="First Name" class="form-control" vaue="" rlequired=""/>
+                <input type="text" name="LName" placeholder="last Name" class="form-control" vaue="" rlequired=""/>
+            </div>
+            <div class="input_box">
+                <input type="email" name="Email"  class="form-control" placeholder="Your Email *" value="" required=""/>
+                <input type="number" name="Phone" class="form-control" placeholder="Your Contact Number *" value="" required="" minlength="10" maxlength="10"/>
+            </div>
+            <textarea cols="30" rows="10" placeholder="We have our advanced premium Cardio Fitness App, which is very much usefull and effective 
+            The 1 month subscription for it is 300/- Rs
+            6 month subscription 600/- Rs
+            1 year subscription for 1200/- Rs only" name="Message"></textarea>
+            <input type="submit" name="submit"  value="connect us" class="btn">
+           
+         
+        </form>
+
+
+    </section>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxCjUSXofGwB7zQ5HpK-7Hw0ycIj7EiVwfj9P6_X1p2LqyEP7r-GzIVNoRukvF0-Day/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
